@@ -1,0 +1,374 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>img8</title>
+  <style type="text/css">
+    :root {
+      --black: rgb(0 0 0);
+      --white: rgb(255 255 255);
+      --yellow: rgb(255 213 28);
+      --light-yellow: rgb(255 209 98 / 60%);
+      --gray: rgb(167 167 167 / 30%);
+      --logo-dimensions: 18rem;
+      --icon-dimensions: 3rem;
+      --full-w: 100%;
+      --full-h: 100%;
+      --default-font: -apple-system, BlinkMacSystemFont, Roboto, helvetica neue, sans-serif;
+      --marvin: "Marvin Visions Variable";
+      --h1-clamp: clamp(4rem, 10vw, 10.5rem);
+      --default-font-size: 1.8rem;
+      --default-heading-size: 3rem;
+      --duration: 0.5s;
+      --short-duration: 350ms;
+      --gap: 0.4rem;
+      --default-padding: 1.2rem;
+      --z-20: 20;
+      --z-30: 30;
+    }
+
+    @font-face {
+      font-family: "Marvin Visions Variable";
+      src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/756881/MarvinVisionsTrial-Variable.ttf");
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ::selection {
+      -webkit-background-clip: text;
+      -webkit-box-direction: clone;
+      -webkit-text-fill-color: var(--yellow);
+      background-color: var(--gray);
+      color: var(--yellow);
+    }
+
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-color: var(--black);
+      font-family: var(--marvin), var(--default-font);
+      font-size: 62.5%;
+      text-transform: uppercase;
+      text-rendering: optimizelegibility;
+    }
+
+    body {
+      display: grid;
+      grid-template-rows: 5rem calc(100vh - 5rem);
+      min-height: 100vh;
+      min-height: -webkit-fill-available;
+    }
+
+    .gradient-text {
+      -webkit-background-clip: text;
+      -webkit-box-direction: clone;
+      -webkit-text-fill-color: rgb(0 0 0 / 0);
+      background-image: linear-gradient(to bottom, var(--yellow), var(--light-yellow));
+    }
+
+    .fill {
+      fill: var(--white);
+    }
+
+    h1 {
+      align-self: flex-end;
+      display: inline-flex;
+      flex-flow: row;
+      font-size: var(--h1-clamp);
+      line-height: 0.75;
+      margin: 0 auto 6rem auto;
+      position: relative;
+      text-align: center;
+      z-index: var(--z-30);
+    }
+
+    img {
+      display: block;
+      max-width: var(--full-w);
+      object-fit: cover;
+      width: var(--full-w);
+    }
+
+    a {
+      color: var(--white);
+      cursor: pointer;
+      font-size: var(--default-font-size);
+      text-decoration: none;
+      touch-action: manipulation;
+    }
+
+    nav {
+      background-color: var(--black);
+      box-shadow: 0 0.8rem 2.4rem var(--shadow-color), 0 1.6rem 5.6rem var(--shadow-color), 0 2.4rem 8rem var(--shadow-color);
+      display: flex;
+      flex-flow: row nowrap;
+      grid-row: 1;
+      padding: var(--default-padding);
+      width: var(--full-w);
+    }
+
+    nav ul {
+      display: flex;
+      flex-flow: row nowrap;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: var(--full-w);
+    }
+
+    nav ul:nth-of-type(2) {
+      align-items: center;
+      gap: var(--default-padding);
+      justify-content: center;
+      width: var(--full-w);
+    }
+
+    nav ul:nth-of-type(2) li {
+      align-items: center;
+    }
+
+    nav ul:nth-of-type(2) li:nth-child(-n + 3) {
+      display: none;
+      border-bottom: 0.4rem solid transparent;
+      height: var(--full-h);
+      padding: 0 var(--default-padding);
+      transition: border var(--short-duration) ease-in;
+    }
+
+    nav ul:nth-of-type(2) li:first-of-type,
+    nav ul:nth-of-type(2) li:last-of-type {
+      margin-left: auto;
+    }
+
+    nav ul:nth-of-type(2) li:hover {
+      border-color: var(--light-yellow);
+    }
+
+    nav ul:nth-of-type(2) li:hover a {
+      color: var(--yellow);
+    }
+
+    nav svg {
+      width: calc(var(--logo-dimensions) / 2);
+    }
+
+    nav a {
+      transition: color var(--short-duration) ease-in;
+    }
+
+    .cta {
+      border: 0.2rem solid transparent;
+      color: var(--light-yellow);
+      overflow: hidden;
+      padding: var(--default-padding);
+      position: relative;
+    }
+
+    .cta:hover,
+    .cta:focus {
+      border-color: var(--yellow);
+      color: var(--black);
+      box-shadow: 0 0.5rem 0.5rem -0.4rem var(--yellow);
+      transform: translateY(-0.25rem);
+    }
+
+    section {
+      display: flex;
+      flex-flow: column wrap;
+      grid-row: 2;
+      overflow: hidden;
+    }
+
+    article {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: var(--full-h);
+      position: relative;
+      width: var(--full-w);
+    }
+
+    article > * {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .panels {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(18.5rem, 1fr));
+      z-index: var(--z-20);
+    }
+
+    .panel {
+      animation: scale-in-ver-center var(--duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+      opacity: 0;
+      position: relative;
+    }
+
+    .panel a {
+      font-size: var(--default-heading-size);
+      left: 0;
+      margin: 0 auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .panel img {
+      filter: brightness(0.33);
+      height: var(--full-h);
+    }
+
+    .panel span {
+      align-items: center;
+      display: flex;
+      flex-flow: row wrap;
+      height: fit-content;
+      justify-content: space-evenly;
+      opacity: 0;
+      padding: var(--default-padding) var(--gap);
+      position: relative;
+      width: var(--full-w);
+      z-index: var(--z-30);
+    }
+
+    .panel span::before {
+      background-color: var(--gray);
+      bottom: 0;
+      content: "";
+      display: block;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: scaleY(0);
+      transform-origin: bottom left;
+      transition: transform var(--short-duration) ease-in-out;
+      z-index: -1;
+    }
+
+    .panel:hover {
+      box-shadow: rgba(255, 209, 98, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+
+    .panel:hover span {
+      color: var(--yellow);
+    }
+
+    .panel:hover span::before {
+      transform: scaleX(1);
+      transform-origin: bottom center;
+    }
+
+    .panel:hover .fill {
+      fill: var(--yellow);
+    }
+
+    .panel:hover img {
+      filter: brightness(0.55);
+    }
+
+    .panel.active span {
+      opacity: 1;
+    }
+
+    @keyframes scale-in-ver-center {
+      0% {
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: 50% 0%;
+      }
+
+      100% {
+        opacity: 1;
+        transform: scaleY(1);
+        transform-origin: 50% 0%;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      nav ul:nth-of-type(2) li:nth-child(-n + 3) {
+        display: flex;
+      }
+
+      nav svg {
+        width: var(--logo-dimensions);
+      }
+
+      .cta {
+        font-size: var(--default-heading-size);
+      }
+
+      .panel {
+        animation: slide-in-blurred-top var(--short-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      }
+
+      @keyframes slide-in-blurred-top {
+        0% {
+          -webkit-transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+          transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+          -webkit-transform-origin: 50% 0%;
+          transform-origin: 50% 0%;
+          -webkit-filter: blur(40px);
+          filter: blur(40px);
+          opacity: 0;
+        }
+
+        100% {
+          -webkit-transform: translateY(0) scaleY(1) scaleX(1);
+          transform: translateY(0) scaleY(1) scaleX(1);
+          -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+          -webkit-filter: blur(0);
+          filter: blur(0);
+          opacity: 1;
+        }
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li>
+        <a href="https://github.com/supahfunk/supah-codepen">
+          <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48">
+            <path class="fill" d="M472.014 976q-101.832-10-169.837-83T234.17 720q-34.886-2-61.028-25.333T146 634q-1-5.223 2.587-9.111Q152.173 621 158 621h59q-5-22-6.5-44.5T210 532q0-40 9.5-72.5T238 403q-16.5-11-23.75-28.522Q207 357.957 207 339q0-21.5 8.5-40t23.5-31q-3-9-3.5-20.5T236 208q0-25.931 7.5-49.465 7.5-23.535 20-40Q276 101 291.174 96.5 306.348 92 324 92q13 0 33.5 5T393 111q55-13 111-13t111 13q17-9 38.5-14t33.5-5q17.652 0 32.826 4.5Q724 101 736.5 117q12.5 16.5 20 40 7.5 23.5 7.5 49.5 0 11.5-1 23t-3 19q15 13 23.5 31t8.5 40q0 18.957-7.25 36.478Q738.5 392 722 403q14 32 23.5 64.5T755 532q0 24.5-1.5 47T747 621h59q5.827 0 9.413 3.889Q818 628.778 817 634q-1 20-27.144 43.5T749.83 720q-15.007 82-83.022 155T497.986 976q2.025 2.025 3.019 4.534Q502 983.068 502 985q0 3.591-3.693 5.796Q494.615 993 487.5 993h-15q-7.115 0-10.808-2.204Q458 988.591 458 985q0-1.932 1-4.466 1-2.535 3.014-4.534ZM409 774q4-1 6.5-3.5T419 764q0-7-4.5-10.5T401 750q-61-16-100.5-66T261 534q-1-8-4.5-12.5T243 517q-4 0-6.5 2.5T233 526q9 66 52.5 117T401 750q2 0 4.5 2.5T409 759v15Zm142 4v-61q-2-7-6.5-11.5T532 700H428q-8 0-12.5 4.5T409 716v61q0 7 4.5 11.5T426 793h108q7 0 11.5-4.5T551 778Zm-80-115h48q3.794 0 6.397-2.5Q528 658 528 654v-76q0-3.794-2.603-6.397Q522.794 569 519 569h-48q-3.794 0-6.397 2.603Q462 574.206 462 578v76q0 3.794 2.603 6.5Q467.206 663 471 663Zm142 111v-15q0-4 2.5-6.5t6.5-3.5q66-18 109.5-69T726 526q-2-4-4.5-6.5T715 517q-7 0-10.5 4.5T700 534q-17 61-57 111t-100 66q-7 2-11 5.5t-4 9.5q0 4 2.5 6.5t6.5 3.5Z" />
+          </svg>
+        </a>
+      </li>
+    </ul>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">About</a></li>
+      <li><a class="cta gradient-text" href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <h1 class="gradient-text">Hello, CodePen!</h1>
+    <article>
+      <div class="panels">
+        <div class="panel">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/756881/MarvinVisionsVariable.png" alt="Marvin Visions Font">
+          <span>Marvin Visions</span>
+        </div>
+        <div class="panel">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/756881/MarvinVisionsVariable.png" alt="Marvin Visions Font">
+          <span>Marvin Visions</span>
+        </div>
+        <div class="panel">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/756881/MarvinVisionsVariable.png" alt="Marvin Visions Font">
+          <span>Marvin Visions</span>
+        </div>
+      </div>
+    </article>
+  </section>
+</body>
+</html>

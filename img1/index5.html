@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulário de Contato</title>
+<style>
+/* Estilos básicos */
+body {
+    font-family: 'Recursive', sans-serif;
+    overflow-x: hidden;
+    background: url("imagens/back3.jpg") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.select {
+  width: 40%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.textarea {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Preencha o formulário para agilizar a venda do seu veiculo!</h2>
+  <form id="contactForm">
+    <div class="form-group">
+      <label for="name" class="label">Nome:</label>
+      <input type="text" id="name" name="name" class="input" required>
+    </div>
+    <div class="form-group">
+      <label for="phone" class="label">Telefone:</label>
+      <input type="tel" id="phone" name="phone" class="input" required>
+    </div>
+    <div class="form-group">
+      <label for="city" class="label">Cidade:</label>
+      <input type="text" id="city" name="city" class="input" required>
+    </div>
+    <div class="form-group">
+      <label for="category" class="label">Categoria:</label>
+      <select id="category" name="category" class="select" required>
+        <option value="">Selecione...</option>
+        <option value="Moto">Moto</option>
+        <option value="Carro">Carro</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="message" class="label">Descreva aqui o veiculo que você está vendendo:</label>
+      <textarea id="message" name="message" class="textarea" rows="4" required></textarea>
+    </div>
+    <button type="button" class="button" onclick="prepareAndSendWhatsApp()">Enviar para WhatsApp</button>
+  </form>
+</div>
+
+<script>
+function prepareAndSendWhatsApp() {
+  var form = document.getElementById("contactForm");
+  var formData = new FormData(form);
+  var whatsappMessage = "Nome: " + formData.get('name') + "%0A" +
+                        "Telefone: " + formData.get('phone') + "%0A" +
+                        "Cidade: " + formData.get('city') + "%0A" +
+                        "Categoria: " + formData.get('category') + "%0A" +
+                        "Mensagem: " + formData.get('message');
+
+  var whatsappLink = "https://wa.me/seu-numero-de-telefone/?text=" + whatsappMessage;
+  window.open(whatsappLink, '_blank');
+}
+</script>
+
+</body>
+</html>

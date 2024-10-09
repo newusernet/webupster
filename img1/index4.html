@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rifa Online</title>
+<style>
+/* Estilos para o body */
+body {
+    font-family: 'Recursive', sans-serif;
+    overflow-x: hidden;
+    background: url("imagens/back3.jpg") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+}
+
+.prize {
+  text-align: center;
+}
+
+.prize img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.gallery img {
+  max-width: 100px;
+  height: auto;
+  margin: 0 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Estilos para o iframe */
+#iframeContainer {
+  margin-top: 20px;
+}
+
+#iframeContainer iframe {
+  width: 400px;
+  height: 400px;
+  border: none;
+  border-radius: 8px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1 class="title">Revenda <span style="color: #e20f2f;">Multimarcas</span></h1>
+  <p>Clique no botão abaixo para acessar a página da rifa:</p>
+  <a href="link_da_pagina_da_rifa" target="_blank" class="button">Pagina da oficial da Rifa</a>
+  
+  <div class="prize">
+    <h2>A moto ou 10.000 R$ no pix!</h2>
+    <img src="motos/moto1.jpg" alt="Prêmio" onclick="openGallery()">
+  </div>
+  
+  <div class="gallery" id="gallery">
+    <!-- Aqui você pode adicionar imagens da galeria -->
+    <img src="motos/moto1.jpg" alt="Imagem 1">
+    <img src="motos/moto1.jpg" alt="Imagem 2">
+    <img src="motos/moto1.jpg" alt="Imagem 3">
+  </div>
+
+  <!-- Adicionando o iframe -->
+  <div id="iframeContainer">
+    <iframe src="https://criarifa.com/">Pagina oficial da rifa</iframe>
+  </div>
+</div>
+
+<script>
+function openGallery() {
+  var gallery = document.getElementById("gallery");
+  gallery.style.display = "flex";
+}
+
+gallery.onclick = function(event) {
+  if (event.target.tagName === "IMG") {
+    // Aqui você pode implementar a lógica para exibir a imagem em um modal de galeria
+    alert("Exibir imagem em modal de galeria");
+  }
+}
+</script>
+
+</body>
+</html>

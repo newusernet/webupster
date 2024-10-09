@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aleatório</title>
+    <style type="text/css">
+        body {
+            background-image: url(imagens/back.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+         /* Estilos para o loader */
+        .loader-wrapper {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(255, 255, 255, 0.9);
+          z-index: 9999;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: opacity 0.3s ease;
+        }
+
+        .loader {
+          border: 16px solid #f3f3f3; /* Light grey */
+          border-top: 16px solid #3498db; /* Blue */
+          border-radius: 50%;
+          width: 120px;
+          height: 120px;
+          animation: spin 2s forwards; /* Forward animation to keep last frame */
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+
+        /* Estilos para os botões e outros elementos */
+        * {
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+        }
+
+        html {
+          font-size: 20px;
+        }
+
+        body {
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .btn {
+          font-family: 'Source Sans Pro', sans-serif;
+          font-weight: 900;
+          padding: 1.25rem 2rem;
+          font-size: 1rem;
+          border-radius: 3.5rem / 100%;
+          position: relative;
+          min-width: 15rem;
+          max-width: 90vw;
+          overflow: hidden;
+          border: 0;
+          cursor: pointer;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          margin-top: 1rem;
+          transition: transform 0.3s ease-in-out;
+        }
+
+        .btn span {
+          position: relative;
+          z-index: 1;
+        }
+
+        .btn:before {
+          content: "";
+          background-color: #ffffff;
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: -1;
+          transition: background-color 0.3s ease-in-out;
+        }
+
+        .btn:hover {
+          transform: scale(1.05);
+        }
+
+        .btn--alpha:before {
+          background-color: #FF6F61;
+        }
+
+        .btn--beta:before {
+          background-color: #6B5B95;
+        }
+
+        .btn--gamma:before {
+          background-color: #88B04B;
+        }
+
+        .btn--delta:before {
+          background-color: #FFA500;
+        }
+
+        @media (max-width: 600px) {
+          .btn {
+            padding: 1rem 1.5rem;
+            font-size: 0.9rem;
+            min-width: 12rem;
+          }
+        }
+
+        a.btn {
+          text-decoration: none;
+          display: inline-block;
+          position: relative;
+          overflow: hidden;
+          color: #000000;
+        }
+
+        a.btn:before {
+          content: "";
+          background-color: #ffffff;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+        }
+
+        a.btn:hover:before {
+          transform: scale(4) translate(0);
+        }
+
+        a.btn span {
+          position: relative;
+          z-index: 1;
+        }
+
+        .icons {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+        }
+
+        .icon {
+          font-size: 2rem;
+          margin: 10px 0;
+          color: #000;
+          text-decoration: none;
+          transition: transform 0.3s ease-in-out;
+        }
+
+        .icon img {
+          width: 50px;
+          height: 50px;
+          transition: transform 0.3s ease-in-out;
+        }
+
+        .icon:hover img {
+          transform: scale(1.2);
+        }
+
+        h2 {
+          font-size: 24px;
+          color: #fff;
+          text-align: center;
+          margin-bottom: 20px;
+          text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+          padding: 20px;
+          background-color: rgba(0, 0, 0, 0.5);
+          border-radius: 10px;
+          max-width: 80%;
+          margin: 0 auto 20px;
+        }
+    </style>
+</head>
+
+<body>
+  <!-- Loader -->
+    <div class="loader-wrapper" id="loader">
+        <div class="loader"></div>
+    </div>
+    <!-- Conteúdo principal -->
+    <h2>Serviço Aleatório - Escolha o serviço desejado</h2>
+    <a href="CRVA.html" class="btn btn--alpha"><span>Serviço 1</span></a>
+    <a href="ESCRITURAS.html" class="btn btn--beta"><span>Serviço 2</span></a>
+    <a href="REGISTROCIVIL.html" class="btn btn--gamma"><span>Serviço 3</span></a>
+    <a href="TABELIONATO.html" class="btn btn--delta"><span>Serviço 4</span></a>
+
+    <!-- Ícones -->
+    <div class="icons">
+        <a href="URL_DO_INSTAGRAM" class="icon"><img src="assetscrva/instagram.png" alt="Instagram"></a>
+        <a href="URL_DO_FACEBOOK" class="icon"><img src="assetscrva/facebook.png" alt="Facebook"></a>
+        <a href="URL_DO_WHATSAPP" class="icon"><img src="assetscrva/whatsapp.png" alt="WhatsApp"></a>
+    </div>
+    <!-- Script para ocultar o loader após 2 segundos -->
+    <script>
+        window.addEventListener('load', function(){
+            setTimeout(function(){
+                document.getElementById('loader').style.opacity = '0';
+                setTimeout(function(){
+                    document.getElementById('loader').style.display = 'none';
+                }, 500);
+            }, 2000); // Aguarda 2 segundos antes de ocultar o loader
+        });
+    </script>
+</body>
+</html>

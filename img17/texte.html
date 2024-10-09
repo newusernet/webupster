@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site juridico</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Garamond;
+        }
+
+        body {
+            background-image: url('imagens/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        /* Estilos para o header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 160px;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px; /* Adicionei padding para manter uma margem nas laterais */
+            z-index: 1000; /* Garante que o header fique sobreposto aos outros elementos */
+        }
+
+        .header h2 {
+            font-size: 22px;
+            margin-left: auto; /* Move o h2 para a direita */
+            margin-right: auto; /* Move o h2 para a esquerda */
+        }
+
+        .header img {
+            height: 60px; /* Ajustei a altura para manter a proporção */
+            margin-top: 10px; /* Adicionei um espaçamento do topo */
+        }
+
+        .social-media {
+            display: flex;
+            align-items: center;
+        }
+
+        .social-media a {
+            margin-left: 40px; /* Adicionei um espaçamento entre os ícones de mídia social */
+            display: flex; /* Permitir ajustar altura e largura dos ícones */
+            justify-content: center; /* Alinhar ícones horizontalmente */
+            align-items: center; /* Alinhar ícones verticalmente */
+            border-radius: 50%; /* Tornar ícones circulares */
+            width: 17px; /* Definir largura dos ícones */
+            height: 17px; /* Definir altura dos ícones */
+            background-color: white; /* Cor de fundo dos ícones */
+            text-decoration: none;
+            color: black;
+        }
+
+        .social-media a:hover {
+            background-color: #f0f0f0; /* Alterei a cor ao passar o mouse */
+        }
+
+        /* Estilos para o texto do social media */
+        .social-media p {
+            margin-right: 40px;
+            padding: 20px;
+            font-size: 20px;
+            margin-left: 10px; /* Adicionei um espaçamento à esquerda do texto */
+        }
+
+        /* Estilos para o container-list */
+        .container-list {
+            max-width: 800px;
+            margin: 180px auto 20px; /* Adicionei margem superior para separar do header */
+            padding: 20px; /* Adicionei um espaçamento interno */
+            background-color: rgba(33, 35, 67, 0.7);
+            border-radius: 10px;
+        }
+
+        .container-list ul {
+            list-style-position: inside;
+        }
+
+        .container-list ul li {
+            padding: 10px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .container-list ul li img {
+            margin-right: 10px; /* Adicionei um espaçamento à direita do ícone */
+            width: 30px; /* Ajustei o tamanho do ícone */
+            height: 30px; /* Ajustei o tamanho do ícone */
+        }
+
+        .container-list ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .container-list ul li a:hover {
+            color: #A9A9A9; /* Alterei a cor ao passar o mouse */
+        }
+
+        /* Estilos para o container */
+        .container {
+            max-width: 800px;
+            margin: 20px auto; /* Adicionei margem superior e inferior */
+            padding: 20px; /* Adicionei um espaçamento interno */
+            background-color: rgba(33, 35, 67, 0.7);
+            border-radius: 10px;
+        }
+
+        .container h2 {
+            font-size: 24px; /* Ajustei o tamanho da fonte */
+            margin-bottom: 10px; /* Adicionei margem inferior */
+        }
+
+        .container p {
+            font-size: 18px; /* Ajustei o tamanho da fonte */
+        }
+
+        /* Estilos para o footer */
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            position: relative;
+            clear: both; /* Limpa os floats */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="center">
+            <!--<img src="imagens/rec1.png" alt="Logo" />-->
+            <h2>SEU LOGO AQUI</h2>
+        </div><!--center-->
+        <div class="social-media">
+            <a href="#"><img src="imagens/instagram.png" alt="Instagram"/></a>
+            <a href="#"><img src="imagens/facebook.png" alt="Facebook"/></a>
+            <p>Acesse nossas redes sociais!</p>
+        </div><!--social-media-->
+    </div><!--header-->
+
+    <div class="container-list">
+        <ul>
+            <li><img src="imagens/whatsapp.png" alt="WhatsApp"><a href="https://api.whatsapp.com/send?phone=seunumerodetelefone">SETOR 1 (51)xxxx-xxxx</a></li>
+            <li><img src="imagens/whatsapp.png" alt="WhatsApp"><a href="https://api.whatsapp.com/send?phone=seunumerodetelefone">SETOR 2 (51)xxxx-xxxx</a></li>
+            <li><img src="imagens/whatsapp.png" alt="WhatsApp"><a href="https://api.whatsapp.com/send?phone=seunumerodetelefone">SETOR 3 (51)xxxx-xxxx</a></li>
+            <li><img src="imagens/whatsapp.png" alt="WhatsApp"><a href="https://api.whatsapp.com/send?phone=seunumerodetelefone">SETOR 4 (51)xxxx-xxxx</a></li>
+        </ul>
+    </div><!--container-list-->
+
+    <div class="container">
+        <h2>Nossa Missão:</h2>
+        <p>Nossa missão é levar o melhor atendimento ao público, de maneira direta, segura e responsável. Instruídos pelos órgãos responsáveis e pela LGPD, nossos funcionários são altamente preparados para atender a sua necessidade e resolver o seu problema. Confiança e seriedade são nossa base!</p>
+    </div><!--container-->
+
+    <footer>
+        <p>Endereço: Aleatório Aqui.</p>
+    </footer>
+</body>
+</html>

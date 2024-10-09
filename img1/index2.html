@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carros</title>
+<style>
+body {
+    font-family: 'Recursive', sans-serif;
+    overflow-x: hidden;
+    background: url("imagens/back3.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.container {
+  background-color: white;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.car-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+
+.car {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.car img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.whatsapp-link {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  background-color: #25D366;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.whatsapp-link:hover {
+  background-color: #128C7E;
+}
+
+/* Estilo para o modal da galeria de fotos */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 90%;
+  max-width: 700px;
+  text-align: center;
+  padding: 50px 0; /* Adicionando padding igual na parte superior e inferior */
+}
+
+.modal-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1 class="title">Revenda <span style="color: #e20f2f;">Multimarcas</span></h1>
+  <div class="car-list">
+    <!-- Carro 1 -->
+    <div class="car" onclick="openModal(['carros/branco.jpg', 'carros/gol.jpg', 'carros/branco.jpg', 'carros/gol.jpg'])">
+      <img src="carros/onix.jpg" alt="Carro 1">
+      <h2>Carro 1</h2>
+      <p>Ano: 2020</p>
+      <p>Preço: R$ 50,000</p>
+      <a href="https://wa.me/seu-numero-de-telefone" target="_blank" class="whatsapp-link">Contate pelo WhatsApp</a>
+    </div>
+    <!-- Carro 2 -->
+    <div class="car" onclick="openModal(['carros/gol1.jpg', 'carros/gol2.jpg', 'carros/gol3.jpg'])">
+      <img src="carros/gol.jpg" alt="Carro 2">
+      <h2>Carro 2</h2>
+      <p>Ano: 2018</p>
+      <p>Preço: R$ 40,000</p>
+      <a href="https://wa.me/seu-numero-de-telefone" target="_blank" class="whatsapp-link">Contate pelo WhatsApp</a>
+    </div>
+    <!-- Carro 3 -->
+    <div class="car" onclick="openModal(['carros/onix1.jpg', 'carros/onix2.jpg', 'carros/onix3.jpg'])">
+      <img src="carros/onix.jpg" alt="Carro 3">
+      <h2>Carro 3</h2>
+      <p>Ano: 2020</p>
+      <p>Preço: R$ 50,000</p>
+      <a href="https://wa.me/seu-numero-de-telefone" target="_blank" class="whatsapp-link">Contate pelo WhatsApp</a>
+    </div>
+    <!-- Carro 4 -->
+    <div class="car" onclick="openModal(['carros/gol1.jpg', 'carros/gol2.jpg', 'carros/gol3.jpg'])">
+      <img src="carros/gol.jpg" alt="Carro 4">
+      <h2>Carro 4</h2>
+      <p>Ano: 2018</p>
+      <p>Preço: R$ 40,000</p>
+      <a href="https://wa.me/seu-numero-de-telefone" target="_blank" class="whatsapp-link">Contate pelo WhatsApp</a>
+    </div>
+     <!-- Carro 5 -->
+    <div class="car" onclick="openModal(['carros/onix1.jpg', 'carros/onix2.jpg', 'carros/onix3.jpg'])">
+      <img src="carros/onix.jpg" alt="Carro 5">
+      <h2>Carro 5</h2>
+      <p>Ano: 2020</p>
+      <p>Preço: R$ 50,000</p>
+      <a href="https://wa.me/seu-numero-de-telefone" target="_blank" class="whatsapp-link">Contate pelo WhatsApp</a>
+    </div>
+    <!-- Carro 6 -->
+    <div class="car" onclick="openModal(['carros/gol1.jpg', 'carros/gol2.jpg', 'carros/gol3.jpg'])">
+      <img src="carros/gol.jpg" alt="Carro 6">
+      <h2>Carro 6</h2>
+      <p>Ano: 2018</p>
+      <p>Preço: R$ 40,000</p>
+      <a href="https://wa.me/seu-numero-de-telefone" target="_blank" class="whatsapp-link">Contate pelo WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal da galeria de fotos -->
+<div id="myModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div class="modal-content" id="modalContent"></div>
+</div>
+
+<script>
+function openModal(images) {
+  var modal = document.getElementById("myModal");
+  var modalContent = document.getElementById("modalContent");
+  modalContent.innerHTML = ''; 
+
+  images.forEach(function(imageSrc) {
+    var img = document.createElement('img');
+    img.src = imageSrc;
+    modalContent.appendChild(img);
+  });
+
+  modal.style.display = "block";
+}
+
+function closeModal() {
+  var modal = document.getElementById("myModal");
+  modal.style.display = "none";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Advocacia</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            color: #333333;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #121e29;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            float: left;
+        }
+
+        .logo img {
+            max-width: 150px; /* Aumentado um pouco o tamanho do logo */
+            border-radius: 50%;
+            border: 2px solid white;
+            transition: transform 0.3s ease; /* Adicionando a transição */
+        }
+        .logo img:hover {
+    transform: scale(1.1); /* Aplicando o efeito de zoom no hover */
+}
+
+        .nav-links {
+            list-style: none;
+            float: right;
+            margin-top: 5px; /* Ajustado o espaçamento entre o logo e o menu */
+        }
+
+        .nav-links li {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        .nav-links li:first-child {
+            margin-left: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            font-size: 18px;
+
+        }
+
+        .nav-links a:hover {
+            color: rgba(255,215,0,0.7);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 20px; /* Ajustado o padding para um tamanho maior */
+            background-color: #121e29;
+            color: #ffffff;
+            text-align: center;
+            margin-top: 110px; /* Ajustado o espaço entre o hero e o navbar */
+            margin-bottom: 50px; /* Ajustado o espaço na parte inferior */
+            border: 2px solid #F0E68C;
+        }
+
+        .hero .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #F0E68C;
+        }
+
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 40px;
+            color: #F0E68C;
+        }
+
+        /* General Section Styling */
+        .section {
+            padding: 80px 20px; /* Ajustado o padding para um tamanho maior */
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #333333;
+        }
+
+        .section p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #121e29;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            transition: transform 0.3s ease; /* Adicionando a transição */
+        }
+
+        .btn:hover {
+            background-color: rgba(255,215,0,0.7);
+            transform: scale(1.1); /* Aplicando o efeito de zoom no hover */
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #f4f4f4;
+            padding: 40px 20px; /* Ajustado o padding para um tamanho maior */
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .footer p {
+            margin-bottom: 20px;
+            color: #666666;
+        }
+
+        .social-links {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .social-links li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .social-links li:last-child {
+            margin-right: 0;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: #121e29;
+            color: #ffffff;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: rgba(255,215,0,0.7);
+        }
+
+        /* Ícones de mídia social */
+        .fab {
+            font-size: 20px;
+        }
+
+        /* WhatsApp Icon */
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #121e29;
+            color: #ffffff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 60px;
+            font-size: 24px;
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+            transition: transform 0.3s ease; /* Adicionando a transição */
+        }
+
+        .whatsapp:hover {
+            background-color: rgba(255,215,0,0.7);
+             transform: scale(1.4); /* Aplicando o efeito de zoom no hover */
+        }
+
+        /* Media Queries for Responsiveness */
+        @media only screen and (max-width: 768px) {
+            .navbar {
+                padding: 10px 0;
+            }
+
+            .logo img {
+                max-width: 170px; /* Aumentado um pouco o tamanho do logo */
+            }
+
+            .nav-links {
+                float: none;
+                text-align: right;
+                margin-top: 10px;
+            }
+
+            .nav-links li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .hero {
+                padding: 180px 20px; /* Ajustado o padding para um tamanho maior */
+                margin-top: 120px; /* Ajustado o espaço entre o hero e o navbar */
+                margin-bottom: px; /* Ajustado o espaço na parte inferior */
+            }
+
+            .hero h1 {
+                font-size: 28px;
+                margin-bottom: 15px; /* Ajustado o espaço entre o título e o texto */
+            }
+
+            .hero p {
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+
+            .section h2 {
+                font-size: 28px;
+                margin-bottom: 30px;
+            }
+
+            .section p {
+                font-size: 14px;
+                margin-bottom: 30px;
+            }
+
+            .btn {
+                padding: 12px 24px;
+
+            }
+
+            .footer {
+                padding: 30px 20px; /* Ajustado o padding para um tamanho maior */
+            }
+
+            .social-links a {
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+            }
+
+            .fab {
+                font-size: 16px;
+            }
+
+            .whatsapp {
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <div class="logo">
+            <img src="logoab.png" alt="TozziniFreire Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about">Sobre Nós</a></li>
+            <li><a href="#expertise">Serviços Prestados</a></li>
+            <li><a href="#professionals">Nossos Profissionais</a></li>
+            <li><a href="https://www.tjrs.jus.br/novo/processos-e-servicos/consultas-processuais/">Consulta Processual</a></li>
+            <li><a href="#contact">Contato</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <h1>Bem-vindo à Advocacia.</h1>
+        <p>"Com uma equipe dedicada de advogados especializados em diversas áreas do direito, estamos aqui para fornecer o suporte e a representação necessários para alcançar resultados positivos. Nossa abordagem personalizada e atenção aos detalhes garantem que cada cliente receba a melhor assistência possível."</p>
+        <a href="https://jornaldaordem.com.br/noticias-mais/" class="btn">Noticias</a>
+    </div>
+</section>
+
+<!-- Seções restantes -->
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; Feito por Mauro Veiga.</p>
+        <ul class="social-links">
+            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+    </div>
+</footer>
+
+<a href="https://wa.me/SEUNUMERODOTELEFONE" class="whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>img1</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Recursive:wght@400;500;600;700;800;900&display=swap">
+    <style>
+        /* Loader */
+        #loader {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #loader .spinner {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #e20f2f;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+
+      
+
+        /* Estilos do restante do conteúdo */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Recursive', sans-serif;
+            overflow-x: hidden;
+            background: url("imagens/back3.jpg") no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+
+        .container {
+            position: relative;
+            padding: 5vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .title {
+            font-size: 6vw;
+            color: #fff;
+            margin-bottom: 0.5vw;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-bottom: 0.5vw;
+            font-size: 4vw;
+            color: #fff;
+        }
+
+        .btn {
+            padding: 4vw 7vw;
+            background-color: #e20f2f;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 2vw;
+            font-size: 4vw;
+            transition: background-color 0.3s ease;
+            margin-top: 0.5vw;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #c40824;
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(226, 15, 47, 0.8);
+            z-index: 999;
+            text-align: center;
+            padding: 3vw;
+            box-shadow: 0px 0px 2vw rgba(0, 0, 0, 0.5);
+            height: auto;
+        }
+
+        .menu ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            justify-content: center;
+        }
+
+        .menu li {
+            margin-right: 3vw;
+            text-align: center;
+        }
+
+        .menu li:last-child {
+            margin-right: 0;
+        }
+
+        .menu li a {
+            color: #000;
+            text-decoration: none;
+            font-size: 4.5vw;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .menu li a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* Media query para dispositivos com largura mínima de 768px */
+        @media only screen and (min-width: 768px) {
+            .title {
+                font-size: 3rem;
+                margin-bottom: 1.5vw;
+            }
+
+            .subtitle {
+                font-size: 1.6rem;
+                margin-bottom: 1.5vw;
+            }
+
+            .btn {
+                padding: 15px 25px;
+                font-size: 1.6rem;
+                margin-top: 1.5vw;
+            }
+
+            .menu {
+                padding: 2vw;
+            }
+
+            .menu li {
+                margin-right: 2vw;
+            }
+
+            .menu li a {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* Transição de página */
+        .fade-in {
+            animation: fadeIn ease 1s;
+            -webkit-animation: fadeIn ease 1s;
+            -moz-animation: fadeIn ease 1s;
+            -o-animation: fadeIn ease 1s;
+            -ms-animation: fadeIn ease 1s;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity:0;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+
+        @-moz-keyframes fadeIn {
+            0% {
+                opacity:0;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+
+        @-webkit-keyframes fadeIn {
+            0% {
+                opacity:0;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+
+        @-o-keyframes fadeIn {
+            0% {
+                opacity:0;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+
+        @-ms-keyframes fadeIn {
+            0% {
+                opacity:0;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+    </style>
+</head>
+<body onload="hideLoader()">
+<div id="loader">
+    <div class="spinner"></div>
+</div>
+<div class="overlay"></div>
+<div class="menu" id="menu">
+    <ul>
+        <li><a href="index2.html" class="page-link">Carros</a></li>
+        <li><a href="index3.html" class="page-link">Motos</a></li>
+        <li><a href="index4.html" class="page-link">Rifas</a></li>
+        <li><a href="index5.html" class="page-link">Vender</a></li>
+    </ul>
+</div>
+<div class="container">
+    <h1 class="title">Revenda <span style="color: #e20f2f;">Multimarcas</span></h1>
+    <p class="subtitle">Texto aleatório</p>
+    <!-- Botão para abrir o modal com o vídeo -->
+    <a href="#" class="btn page-link" onclick="openVideoModal()">Sobre Nós</a>
+</div>
+
+
+
+<!-- Ícone do WhatsApp -->
+<a href="https://wa.me/SEUNUMERODOTELEFONE" target="_blank" style="position: fixed; bottom: 3vw; right: 3vw; z-index: 1000;">
+    <img src="imagens/wpp.png" alt="whatsapp-btn" width="70px" height="70px"> 
+</a>
+
+<script>
+    // Função para esconder o loader
+    function hideLoader() {
+        document.getElementById('loader').style.display = 'none';
+    }
+
+    
+    // Adiciona a classe 'fade-in' quando um link for clicado
+    document.querySelectorAll('.page-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const href = this.getAttribute('href');
+            document.body.classList.add('fade-in');
+            setTimeout(() => {
+                window.location.href = href;
+            }, 800); // Tempo da animação
+        });
+    });
+
+    const menu = document.getElementById('menu');
+    menu.classList.add('open');
+</script>
+</body>
+</html>

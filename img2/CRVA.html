@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRVA 0000 - Aleatorio/RS</title>
+    <style>
+        /* Estilos CSS aqui... */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff; /* Alterado para branco */
+        }
+
+        header {
+            background-color: #333; /* Alterado para cinza escuro */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header img {
+            max-width: 200px;
+            height: auto;
+        }
+
+        nav {
+            background-color: #e4771a; /* Alterado para laranja */
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+            position: relative; /* Adiciona posição relativa */
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 21px;
+            transition: color 0.3s; /* Adiciona uma transição suave */
+        }
+
+        nav ul li a:hover {
+            color: black; /* Altera a cor ao passar o mouse */
+        }
+
+        /* Estilos do menu dropdown */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333333;
+            min-width: 160px;
+            text-align: left;
+            z-index: 1;
+            top: calc(100% + 10px); /* Posiciona o menu abaixo do item pai com um pequeno espaço */
+            left: 50%; /* Centraliza horizontalmente */
+            transform: translateX(-50%); /* Centraliza horizontalmente */
+            width: max-content;
+            white-space: nowrap;
+            max-height: 300px; /* Limita a altura máxima do menu */
+            overflow-y: auto; /* Adiciona uma barra de rolagem vertical se necessário */
+            min-width: 200px; /* Define a largura mínima do menu */
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #444444;
+        }
+
+        /* Estilos para dispositivos móveis */
+        @media screen and (max-width: 768px) {
+            header img {
+                max-width: 150px;
+            }
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+            nav ul li a {
+                font-size: 18px; /* Tamanho aumentado para dispositivos móveis */
+            }
+
+            section {
+                padding: 20px; /* Ajusta o padding interno */
+                margin: 10px 0; /* Ajusta a margem externa */
+                min-height: calc(100vh - 240px); /* Ajusta a altura mínima */
+            }
+
+            footer {
+                padding: 10px; /* Reduz o padding */
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                z-index: 1; /* Garante que o footer esteja acima do conteúdo */
+            }
+        }
+
+        section {
+            padding: 40px 20px; /* Adiciona padding interno */
+            margin: 20px; /* Adiciona margem externa */
+            background-color: #f5f5f5; /* Alterado para cinza claro */
+        }
+
+        section h2 {
+            text-align: center; /* Centraliza o título */
+            margin-bottom: 20px; /* Adiciona espaçamento inferior */
+        }
+
+        section p {
+            text-align: justify; /* Justifica o texto */
+            line-height: 1.6; /* Aumenta o espaçamento entre linhas */
+        }
+
+        footer {
+            background-color: #333; /* Alterado para cinza escuro */
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Estilos para a tabela */
+        #emolumentos-table {
+            display: none;
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+        }
+
+        #emolumentos-table th, #emolumentos-table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        #emolumentos-table th {
+            background-color: #333;
+            color: white;
+        }
+
+        #emolumentos-table tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="assetscrva/logo2.png" alt="CRVA 0024 - Campo Bom/RS">
+        <h1>CRVA 0000 - Aleatório/RS</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="https://www.detran.rs.gov.br/inicial">Detran/RS</a></li>
+            <li><a href="#">IPVA e Licenciamento</a></li>
+            <li><a href="#">Nosso Whatsapp</a></li>
+            <li id="servicos-dropdown">
+                <a href="#">Serviços</a>
+                <div class="dropdown-content" id="servicos-menu">
+                    <a href="#">Emissão de CRLV-E</a>
+                    <a href="#">Transferência de Propriedade</a>
+                    <a href="#">Emissão de Atpv-e/2° via do DUT</a>
+                    <a href="#">Outros</a>
+                </div>
+            </li>
+            <li id="emolumentos-dropdown">
+                <a href="#">Valores de Emolumentos</a>
+                <table id="emolumentos-table">
+                    <thead>
+                        <tr>
+                            <th>Descrição</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CRLV-E</td>
+                            <td>R$ 10,40 cada</td>
+                        </tr>
+                        <tr>
+                            <td>Digitalização dos Processos</td>
+                            <td>R$ 2,60 por folha</td>
+                        </tr>
+                        <tr>
+                            <td>Certidão de Registro</td>
+                            <td>R$ 12,90 cada</td>
+                        </tr>
+                        <tr>
+                            <td>Restrição por Transferência</td>
+                            <td>R$ 39,89 cada</td>
+                        </tr>
+                        <tr>
+                            <td>Autorização SIS</td>
+                            <td>R$ 39,80 cada</td>
+                        </tr>
+                        <tr>
+                            <td>Outros</td>
+                            <td>Consulte via WhatsApp!</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </li>
+        </ul>
+    </nav>
+    <section>
+        <h2>Bem-vindo ao CRVA de Aleatorio/RS</h2>
+        <p>Navegue pelos links disponíveis para encontrar o que você precisa.
+        Caso não encontre a opção desejada ou ainda continue com dúvidas, não tem problema. 
+        Nos contate via Whatsapp que iremos lhe atender da melhor forma possível :).</p>
+    </section>
+    <footer>
+        <p>CRVA 0000 Credenciado ao Detran RS.</p>
+        <p>Endereço: Aleatorio- RS,.</p>
+    </footer>
+    <script>
+        // JavaScript para controlar o menu dropdown de Serviços
+        const servicosDropdown = document.getElementById("servicos-dropdown");
+        const servicosMenu = document.getElementById("servicos-menu");
+        let servicosMenuVisivel = false;
+
+        servicosDropdown.addEventListener("click", function() {
+            servicosMenu.style.display = servicosMenuVisivel ? "none" : "block";
+            servicosMenuVisivel = !servicosMenuVisivel;
+        });
+
+        // JavaScript para controlar a exibição da tabela de emolumentos
+        const emolumentosDropdown = document.getElementById("emolumentos-dropdown");
+        const emolumentosTable = document.getElementById("emolumentos-table");
+        let emolumentosVisivel = false;
+
+        emolumentosDropdown.addEventListener("click", function() {
+            emolumentosTable.style.display = emolumentosVisivel ? "none" : "table";
+            emolumentosVisivel = !emolumentosVisivel;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafeteria</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+    <div id="content" style="display:none;">
+        <header>
+            <div class="logo">
+                <img src="https://cdn.pixabay.com/photo/2022/03/09/05/05/coffee-7057030_1280.png" alt="Cafeteria Logo">
+            </div>
+            <h1>Cafeteria do João</h1>
+        </header>
+
+        <main>
+            <div class="menu"><!-- MENU DE SALGADOS -->
+                <h2>Salgados</h2>
+                <div class="product" data-ingredients="Frango, Pão, Alface, Tomate, Maionese">
+                    <div class="product-info">
+                        <span>Sanduíche de Frango</span>
+                        <span>R$ 10,00</span>
+                    </div>
+                    <img src="https://img.freepik.com/fotos-gratis/grelhado-e-sanduiche-com-bacon-ovo-frito-tomate-e-alface-servido-em-tabua-de-madeira_1150-42411.jpg" alt="Sanduíche de Frango">
+                    <button onclick="addToCart('Sanduíche de Frango', 10)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product" data-ingredients="Polvilho, Queijo, Ovo, Leite, Óleo">
+                    <div class="product-info">
+                        <span>Pão de Queijo</span>
+                        <span>R$ 3,00</span>
+                    </div>
+                    <img src="https://img.freepik.com/fotos-gratis/pao-recem-assado-e-paes-doces-na-mesa-gerados-por-ia_188544-33386.jpg" alt="Pão de Queijo">
+                    <button onclick="addToCart('Pão de Queijo', 3)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product" data-ingredients="Farinha, leite, manteiga,Frango">
+                    <div class="product-info">
+                        <span>Muffin de Frango</span>
+                        <span>R$ 3,00</span>
+                    </div>
+                    <img src="https://cdn.pixabay.com/photo/2023/07/27/00/52/muffin-8152209_1280.jpg" alt="Pão de Queijo">
+                    <button onclick="addToCart('Muffin de Frango', 3)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product" data-ingredients="Batata assada com tempeiros">
+                    <div class="product-info">
+                        <span>Batata Assada</span>
+                        <span>R$ 3,00</span>
+                    </div>
+                    <img src="https://cdn.pixabay.com/photo/2015/07/13/15/29/potato-wedges-843311_1280.jpg" alt="Pão de Queijo">
+                    <button onclick="addToCart('Batata Assada', 3)">Adicionar ao Carrinho</button>
+                </div>
+            </div><!-- MENU DE SALGADOS -->
+            
+            <div class="menu"><!-- MENU DE DOCES-->
+                <h2>Doces</h2>
+                <div class="product" data-ingredients="Farinha, Leite, Açúcar, Creme, Chocolate">
+                    <div class="product-info">
+                        <span>Bolo de Chocolate</span>
+                        <span>R$ 7,00</span>
+                    </div>
+                    <img src="https://cdn.pixabay.com/photo/2017/01/11/11/33/cake-1971552_1280.jpg">
+                    <button onclick="addToCart('Bolo de Chocolate', 7)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product" data-ingredients="Farinha, Chocolate, Creme, Morango">
+                    <div class="product-info">
+                        <span>X Caque</span>
+                        <span>R$ 7,00</span>
+                    </div>
+                    <img src="https://cdn.pixabay.com/photo/2017/01/23/15/05/tart-2002839_1280.jpg" alt="Cappuccino">
+                    <button onclick="addToCart('X Caque', 7)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product" data-ingredients="Farinha,Leite,Creme">
+                    <div class="product-info">
+                        <span>Mil Folhas</span>
+                        <span>R$ 7,00</span>
+                    </div>
+                    <img src="https://cdn.pixabay.com/photo/2017/03/06/00/26/food-2120311_1280.jpg" alt="Cappuccino">
+                    <button onclick="addToCart('Mil Folhas', 7)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product" data-ingredients="Farinha,Leite,Manteiga,Chocolate">
+                    <div class="product-info">
+                        <span>Brownie</span>
+                        <span>R$ 7,00</span>
+                    </div>
+                    <img src="https://cdn.pixabay.com/photo/2014/11/28/08/03/brownie-548591_1280.jpg" alt="Cappuccino">
+                    <button onclick="addToCart('Brownie', 7)">Adicionar ao Carrinho</button>
+                </div>
+            </div><!-- MENU DE DOCES-->
+            
+            <div class="menu"><!-- Menu de Bebidas-->
+                <h2>Bebidas</h2>
+                <div class="product" data-ingredients="Água, Café">
+                    <div class="product-info">
+                        <span>Café Expresso</span>
+                        <span>R$ 5,00</span>
+                    </div>
+                    <img src="https://img.freepik.com/fotos-gratis/close-up-xicara-de-cafe-com-fundo-de-madeira_23-2148251640.jpg" alt="Café Expresso">
+                    <button onclick="addToCart('Café Expresso', 5)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product" data-ingredients="Café, Leite, Creme, Açucar">
+                    <div class="product-info">
+                        <span>Cappuccino de Creme</span>
+                        <span>R$ 5,00</span>
+                    </div>
+                    <img src="https://cdn.pixabay.com/photo/2016/11/29/13/09/cappuccino-1869731_1280.jpg" alt="Café Expresso">
+                    <button onclick="addToCart('Cappuccino de Creme', 5)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product" data-ingredients="Café, Leite, Creme, Açucar">
+                    <div class="product-info">
+                        <span>Cappuccino Tradicional</span>
+                        <span>R$ 5,00</span>
+                    </div>
+                    <img src="https://cdn.pixabay.com/photo/2019/12/02/11/23/drink-4667507_1280.jpg" alt="Café Expresso">
+                    <button onclick="addToCart('Cappuccino Tradicional', 5)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product" data-ingredients="Água, Laranja, Açucar">
+                    <div class="product-info">
+                        <span>Suco de Laranja</span>
+                        <span>R$ 5,00</span>
+                    </div>
+                    <img src="https://cdn.pixabay.com/photo/2016/08/23/15/52/fresh-orange-juice-1614822_1280.jpg" alt="Café Expresso">
+                    <button onclick="addToCart('Suco de Laranja', 5)">Adicionar ao Carrinho</button>
+                </div><!-- menu de bebidas-->
+            </div>
+
+            <div class="cart">
+                <h2>Carrinho <i class="fas fa-shopping-cart"></i></h2>
+                <ul id="cart-items"></ul>
+                <p id="total">Total: R$ 0,00</p>
+
+                <div class="order-options">
+                    <h3>Opções de Entrega</h3>
+                    <label><input type="radio" name="delivery-option" value="Retirar no Local" checked> Retirar no Local</label>
+                    <label><input type="radio" name="delivery-option" value="Entregar em Casa"> Entregar em Casa</label>
+                    <div id="address-fields" style="display: none;">
+                        <label for="address">Endereço:</label>
+                        <input type="text" id="address" name="address" placeholder="Seu endereço">
+                    </div>
+                </div>
+
+                <div class="payment-methods">
+                    <h3>Método de Pagamento</h3>
+                    <select id="payment-method">
+                        <option value="Dinheiro">Dinheiro</option>
+                        <option value="Cartão de Crédito">Cartão de Crédito</option>
+                        <option value="Pix">Pix</option>
+                    </select>
+                </div>
+
+                <div class="order-comments">
+                    <h3>Observações</h3>
+                    <textarea id="order-comments" placeholder="Alguma observação extra?"></textarea>
+                </div>
+
+                <button onclick="sendOrder()">Enviar Pedido</button>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Endereço</h3>
+                    <p>Rua Exemplo, 123</p>
+                    <p>Bairro Exemplo</p>
+                    <p>Cidade, Estado</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>Telefone: (11) 1234-5678</p>
+                    <p>Email: contato@cafeteria.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Horário de Atendimento</h3>
+                    <p>Seg - Sex: 8:00 - 18:00</p>
+                    <p>Sáb: 9:00 - 14:00</p>
+                    <p>Dom: Fechado</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div id="ingredient-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <p id="ingredient-text"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
